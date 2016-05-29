@@ -1,4 +1,4 @@
-package me.arkadiy.gumenniy.entity;
+package me.arkadiy.gumenniy.model.entity;
 
 
 import java.util.*;

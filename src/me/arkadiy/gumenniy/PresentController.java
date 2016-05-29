@@ -1,7 +1,7 @@
 package me.arkadiy.gumenniy;
 
-import me.arkadiy.gumenniy.entity.Present;
-import me.arkadiy.gumenniy.entity.PresentItem;
+import me.arkadiy.gumenniy.model.entity.Present;
+import me.arkadiy.gumenniy.model.entity.PresentItem;
 import me.arkadiy.gumenniy.view.View;
 
 import java.util.Comparator;
@@ -23,8 +23,8 @@ public class PresentController extends BaseController {
         getView().display(present.toString());
 
         findSweets();
-        sort("let's sort by sugar proportion", (o1, o2) -> o1.getSugarProportion() - o2.getSugarProportion());
-        sort("let's sort by weight", (o1, o2) -> o1.getWeight() - o2.getWeight() >= 0 ? 1 : -1);
+        sort("Let's sort by sugar proportion.", (o1, o2) -> o1.getSugarProportion() - o2.getSugarProportion());
+        sort("Let's sort by weight.", (o1, o2) -> o1.getWeight() - o2.getWeight() >= 0 ? 1 : -1);
     }
 
     private void findSweets() {
