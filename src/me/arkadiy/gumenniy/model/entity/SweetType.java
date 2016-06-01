@@ -1,7 +1,7 @@
 package me.arkadiy.gumenniy.model.entity;
 
 /**
- * Created by Arkadiy on 28.05.2016.
+ * Sweet type
  */
 public enum SweetType {
     CARAMEL,

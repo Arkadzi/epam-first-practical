@@ -1,26 +1,24 @@
 package me.arkadiy.gumenniy.model;
 
-import me.arkadiy.gumenniy.model.entity.PresentItem;
+import me.arkadiy.gumenniy.model.entity.Sweet;
 import me.arkadiy.gumenniy.model.entity.SweetType;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Created by Arkadiy on 28.05.2016.
+ * Model to fetch {@link Sweet}
  */
-public class PresentModel implements Model<PresentItem> {
+public class PresentModel implements Model<Sweet> {
 
     @Override
-    public List<PresentItem> fetchData() {
-        List<PresentItem> items = new ArrayList<>();
+    public List<Sweet> fetchData() {
+        List<Sweet> items = new ArrayList<>();
 
         Path path = Paths.get("db.txt");
         try (Stream<String> lines = Files.lines(path)) {
@@ -32,12 +30,13 @@ public class PresentModel implements Model<PresentItem> {
                     float weight = Float.parseFloat(data[2]);
                     float price = Float.parseFloat(data[3]);
                     int sugarProportion = Integer.parseInt(data[4]);
-                    items.add(new PresentItem(name, sweetType, weight, price, sugarProportion));
-                } catch (IllegalArgumentException e) {}
+                    items.add(new Sweet(name, sweetType, weight, price, sugarProportion));
+                } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
+                }
             });
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        return  items;
+        return items;
     }
 }

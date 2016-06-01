@@ -3,8 +3,13 @@ package me.arkadiy.gumenniy.model;
 import java.util.List;
 
 /**
- * Created by Arkadiy on 28.05.2016.
+ * Simpe model with ability to fetch data
  */
 public interface Model<T> {
+    /**
+     * fetches data
+     *
+     * @return - fetched data
+     */
     List<T> fetchData();
 }

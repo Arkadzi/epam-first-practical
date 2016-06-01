@@ -1,16 +1,31 @@
 package me.arkadiy.gumenniy.model.entity;
 
 /**
- * Created by Arkadiy on 28.05.2016.
+ * describes some sweet
  */
-public class PresentItem {
+public class Sweet {
+    /**
+     * sweet type
+     */
     private SweetType sweetType;
+    /**
+     * sweet name
+     */
     private String name;
+    /**
+     * sweet weight
+     */
     private float weight;
+    /**
+     * price of single item
+     */
     private float price;
+    /**
+     * proportion of sugar in percents
+     */
     private int sugarProportion;
 
-    public PresentItem(String name, SweetType sweetType, float weight, float price, int sugarProportion) {
+    public Sweet(String name, SweetType sweetType, float weight, float price, int sugarProportion) {
         this.name = name;
         this.sweetType = sweetType;
         this.weight = weight;
@@ -18,7 +33,7 @@ public class PresentItem {
         this.sugarProportion = sugarProportion;
     }
 
-    public PresentItem(PresentItem item) {
+    public Sweet(Sweet item) {
         this(item.getName(), item.getSweetType(), item.getWeight(), item.getPrice(), item.getSugarProportion());
     }
 
@@ -68,7 +83,7 @@ public class PresentItem {
 
     @Override
     public String toString() {
-        return "PresentItem{" +
+        return "Sweet{" +
                 "sweetType=" + sweetType +
                 ", name='" + name + '\'' +
                 ", weight=" + weight +
